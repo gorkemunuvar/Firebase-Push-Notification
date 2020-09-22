@@ -194,17 +194,16 @@ def run_script():
             send_notification("Error while running script", str(error))
 
 
-if __name__ == "__main__":
-    print("Script started.")
+print("Script started.")
 
-    WAIT_TIME_SECONDS = 5
-    ticker = threading.Event()
+WAIT_TIME_SECONDS = 5
+ticker = threading.Event()
 
-    while not ticker.wait(WAIT_TIME_SECONDS):
-        run_script()
+while not ticker.wait(WAIT_TIME_SECONDS):
+    run_script()
 
-        current_time = datetime.now()
-        print(
-            "Script has been completed for the last time at: ",
-            current_time.strftime("%d-%m-%Y %H:%M:%S")
-        )
+    current_time = datetime.now()
+    print(
+        "Script has been completed for the last time at: ",
+        current_time.strftime("%d-%m-%Y %H:%M:%S")
+    )
