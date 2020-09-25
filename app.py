@@ -201,7 +201,7 @@ def run_script():
 if __name__ == "__main__":
     print("Script started.")
 
-    WAIT_TIME_SECONDS = 1
+    WAIT_TIME_SECONDS = 600
     ticker = threading.Event()
 
     while not ticker.wait(WAIT_TIME_SECONDS):
