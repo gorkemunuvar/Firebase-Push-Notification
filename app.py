@@ -95,6 +95,9 @@ def read_json_file(file_path):
 
 
 def send_notification(title, message):
+    if title == "" or message == "":
+        return
+
     if len(message) > 300:
         message = message[:300] + "..."
 
@@ -199,11 +202,12 @@ print("Script started.")
 WAIT_TIME_SECONDS = 5
 ticker = threading.Event()
 
-while not ticker.wait(WAIT_TIME_SECONDS):
-    run_script()
-
-    current_time = datetime.now()
-    print(
-        "Script has been completed for the last time at: ",
-        current_time.strftime("%d-%m-%Y %H:%M:%S")
-    )
+if __name__ == "__main__":
+    while not ticker.wait(WAIT_TIME_SECONDS):
+        run_script()
+    
+        current_time = datetime.now()
+        print(
+            "Script has been completed for the last time at: ",
+            current_time.strftime("%d-%m-%Y %H:%M:%S")
+        )
