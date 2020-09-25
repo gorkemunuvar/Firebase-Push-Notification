@@ -197,12 +197,14 @@ def run_script():
             send_notification("Error while running script", str(error))
 
 
-print("Script started.")
 
-WAIT_TIME_SECONDS = 5
-ticker = threading.Event()
 
 if __name__ == "__main__":
+    print("Script started.")
+
+    WAIT_TIME_SECONDS = 600
+    ticker = threading.Event()
+
     while not ticker.wait(WAIT_TIME_SECONDS):
         run_script()
     
