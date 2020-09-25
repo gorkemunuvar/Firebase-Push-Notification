@@ -10,7 +10,6 @@ from os import path
 from lxml import html
 from datetime import datetime
 
-
 def parse_html(url, starting_link, title_selector, link_selector):
     # verify=False ignores ssl certificate
     # problems. it uses http instead of https
@@ -147,7 +146,7 @@ def compare(new_list, last_list):
 def log_announcements(department_name, announcements):
     print("-----------------------")
     print(department_name)
-    print("-----------------------")
+    print("-----------------------")    
 
     titles = list(map(lambda x: x['title'], announcements))
 
@@ -170,7 +169,7 @@ def run_script():
 
             if status_code == 200:
                 main_path = os.path.dirname(os.path.abspath(__file__))
-                file_path = main_path + "\\files\\" + department["fileName"]
+                file_path = main_path + "/files/" + department["fileName"]
 
                 new_announcements = result["announcements"]
                 last_announcements = read_json_file(file_path)
@@ -202,7 +201,7 @@ def run_script():
 if __name__ == "__main__":
     print("Script started.")
 
-    WAIT_TIME_SECONDS = 600
+    WAIT_TIME_SECONDS = 1
     ticker = threading.Event()
 
     while not ticker.wait(WAIT_TIME_SECONDS):
